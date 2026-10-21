@@ -1,0 +1,30 @@
+openapi: "3.0.0"
+info:
+  title: "API de productos"
+  version: "1.0.0"
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /api/productos:
+    get:
+      summary: "Obtiene la lista de productos"
+      responses:
+        "200":
+          description: "Lista de productos"
+
+  /api/productos/{id}:
+    get:
+      summary: "Obtiene un producto por su identificador"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "Producto encontrado"
+        "404":
+          description: "Producto no encontrado"
